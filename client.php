@@ -2,8 +2,8 @@
 require 'vendor/autoload.php';
 use Aws\CloudWatch\CloudWatchClient;
 
-$key = "AKIAJE2BD5HC65LYSODQ";
-$secret = "hBxgW+bRS9l0QH8hvRoIIjGzjbAWkeCCZTLwYmXK";
+$key = "your_access_key";
+$secret = "your_access_secret";
 $region = "us-west-2";
 $version = "latest";
 $interval = 15;
@@ -45,9 +45,9 @@ function grabber($client, $tablename, $metric) {
   ));
   //echo 'GRABBER='.serialize($results);
 
-  //print "-------------------------------------------\n";
-  //print "    $metric\n";
-  //print "-------------------------------------------\n";
+  print "-------------------------------------------\n";
+  print "    $metric\n";
+  print "-------------------------------------------\n";
 $output = array('key'=>$metric, 'min'=>1, 'max'=>5, 'avg'=>2, 'sum'=>2, 'cumulate'=>true, 'units'=>'count');
 /*
   foreach ($results as $result){
@@ -71,9 +71,9 @@ $output = array('key'=>$metric, 'min'=>1, 'max'=>5, 'avg'=>2, 'sum'=>2, 'cumulat
 }
 
 function grab_stats($client, $tablename) {
-  //print "\n==========================================================\n";
-  //print "    $tablename\n";
-  //print "==========================================================\n";
+  print "\n==========================================================\n";
+  print "    $tablename\n";
+  print "==========================================================\n";
 
   $output = array();
 $result = $client->listMetrics(array(
@@ -126,15 +126,15 @@ function addCurrentToCumulative($current, $cumulative){
   return $cumulative;
 }
 function saveOrPrintCumulative($cumulative){
-  //print "\n==========================================================\n";
-  //print "    Aggregated Metrics\n";
-  //print "==========================================================\n";
+  print "\n==========================================================\n";
+  print "    Aggregated Metrics\n";
+  print "==========================================================\n";
   //echo 'CUMULATIVE='.serialize($cumulative);  
   foreach($cumulative as $item){
     $key = $item['key'];
     $value = $item['value'];
     $units = $item['units'];
-    //print "Metric -- $key $value $units \n";
+    print "Metric -- $key $value $units \n";
   }
 
 }
