@@ -2,8 +2,8 @@
 require 'vendor/autoload.php';
 use Aws\CloudWatch\CloudWatchClient;
 
-$key = "AKIAJE2BD5HC65LYSODQ";
-$secret = "hBxgW+bRS9l0QH8hvRoIIjGzjbAWkeCCZTLwYmXK";
+$key = "your_access_key";
+$secret = "your_access_secret";
 $region = "us-west-2";
 $version = "latest";
 $interval = 15;
